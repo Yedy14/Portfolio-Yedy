@@ -12,8 +12,6 @@ import Navbar from "../components/Navbar";
 const VideoScrub = dynamic(() => import("../components/VideoScrub"), { ssr: false });
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Expertise from "../components/Expertise";
-import Services from "../components/Services";
 import Work from "../components/Work";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -24,10 +22,6 @@ export default function Home() {
   const footerRef   = useRef(null);
 
   useEffect(() => {
-    // Accessibilité : pas de smooth scrolling si l'utilisateur préfère réduire les animations
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
     const lenis = new Lenis({
       lerp: 0.1, // More responsive, less lag
       smoothWheel: true,
@@ -82,8 +76,6 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <About />
-        <Expertise />
-        <Services />
         <Work />
         <Contact />
         <div ref={footerRef}><Footer /></div>

@@ -228,7 +228,7 @@ export default function ArchiveAdmin() {
     setForm(f => ({ ...f, gallery: f.gallery.filter((_, i) => i !== idx) }));
   };
 
-  const inp = "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[#00F5FF]/50 transition-colors";
+  const inp = "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[#ff6b1a]/50 transition-colors";
   const lbl = "text-[10px] text-white/30 tracking-[0.3em] uppercase mb-2 block font-medium";
 
   return (
@@ -238,7 +238,7 @@ export default function ArchiveAdmin() {
         <div>
           <h1 className="text-white text-3xl font-black tracking-tight mb-2">Creative Archive</h1>
           <div className="flex items-center gap-4">
-            <span className="px-3 py-1 bg-[#00F5FF]/10 text-[#00F5FF] text-[10px] font-bold tracking-widest uppercase rounded-full border border-[#00F5FF]/20">
+            <span className="px-3 py-1 bg-[#ff6b1a]/10 text-[#ff6b1a] text-[10px] font-bold tracking-widest uppercase rounded-full border border-[#ff6b1a]/20">
               {works.length} Items
             </span>
             <div className="h-4 w-px bg-white/10" />
@@ -251,7 +251,7 @@ export default function ArchiveAdmin() {
           </div>
         </div>
         <button onClick={openAdd}
-          className="bg-[#00F5FF] text-black font-black px-6 py-3.5 rounded-2xl text-[11px] uppercase tracking-[0.2em] hover:bg-[#6FF3FF] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#00F5FF]/10 flex items-center gap-2">
+          className="bg-[#ff6b1a] text-black font-black px-6 py-3.5 rounded-2xl text-[11px] uppercase tracking-[0.2em] hover:bg-[#ff8c42] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#ff6b1a]/10 flex items-center gap-2">
           <FiPlus size={16} />
           Add to Archive
         </button>
@@ -260,7 +260,7 @@ export default function ArchiveAdmin() {
       {/* Grid */}
       {loading ? (
         <div className="flex items-center justify-center py-40">
-          <div className="animate-spin h-8 w-8 border-4 border-[#00F5FF] border-t-transparent rounded-full" />
+          <div className="animate-spin h-8 w-8 border-4 border-[#ff6b1a] border-t-transparent rounded-full" />
         </div>
       ) : filtered.length === 0 ? (
         <div className="text-center py-40 bg-white/[0.02] border border-white/5 rounded-[2rem] border-dashed">
@@ -309,7 +309,7 @@ export default function ArchiveAdmin() {
               <div className="p-6">
                 <div className="mb-3">
                   <h3 className="text-white font-bold text-lg tracking-tight truncate mb-1">{p.title}</h3>
-                  <p className="text-[#00F5FF] text-[10px] uppercase tracking-[0.2em] font-medium">{p.category || "—"}</p>
+                  <p className="text-[#ff6b1a] text-[10px] uppercase tracking-[0.2em] font-medium">{p.category || "—"}</p>
                 </div>
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {p.tech?.split('·').map((t, i) => (
@@ -464,7 +464,7 @@ export default function ArchiveAdmin() {
               <div className="pt-4 border-t border-white/5">
                 <div className="flex items-center justify-between mb-3">
                   <label className={lbl + " !mb-0"}>Cover / Hover Image</label>
-                  <span className="text-[8px] text-[#00F5FF] uppercase tracking-[0.2em] border border-[#00F5FF]/30 px-1.5 py-0.5 rounded-full bg-[#00F5FF]/5">4:5</span>
+                  <span className="text-[8px] text-[#ff6b1a] uppercase tracking-[0.2em] border border-[#ff6b1a]/30 px-1.5 py-0.5 rounded-full bg-[#ff6b1a]/5">4:5</span>
                 </div>
                 <div className="flex gap-4 flex-col md:flex-row">
                   {form.image_url && (
@@ -572,7 +572,7 @@ export default function ArchiveAdmin() {
 
               <div className="flex gap-4 pt-4">
                 <button type="submit" disabled={saving}
-                  className="flex-1 bg-[#00F5FF] text-black font-black py-4 rounded-2xl text-[11px] uppercase tracking-[0.2em] hover:bg-[#6FF3FF] transition-all flex items-center justify-center gap-2">
+                  className="flex-1 bg-[#ff6b1a] text-black font-black py-4 rounded-2xl text-[11px] uppercase tracking-[0.2em] hover:bg-[#ff8c42] transition-all flex items-center justify-center gap-2">
                   {saving ? 'Saving…' : editing ? 'Update' : 'Add to Archive'}
                   {!saving && <FiCheckCircle size={16} />}
                 </button>

@@ -3,7 +3,6 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
-import { FALLBACK_PROJECTS } from "@/app/work/content";
 
 const CircularGallery = dynamic(
   () => import("@/components/CircularGallery/CircularGallery"),
@@ -32,7 +31,7 @@ function MagneticCTA({ href, children }) {
         ref.current.style.transform = `translate(${(e.clientX - b.left - b.width / 2) * 0.25}px,${(e.clientY - b.top - b.height / 2) * 0.25}px)`;
       }}
       onMouseLeave={() => { ref.current.style.transform = "translate(0,0)"; }}
-      className="inline-flex items-center gap-3 px-7 py-3.5 bg-[#00F5FF] text-black font-black rounded-xl text-[10px] uppercase tracking-[0.25em] hover:bg-[#6FF3FF] will-change-transform"
+      className="inline-flex items-center gap-3 px-7 py-3.5 bg-[#ff6b1a] text-black font-black rounded-xl text-[10px] uppercase tracking-[0.25em] hover:bg-[#ff8c42] will-change-transform"
       style={{ transition: "transform 0.2s cubic-bezier(.23,1,.32,1), background-color 0.3s" }}
     >
       {children}
@@ -136,13 +135,13 @@ function ProjectShowcase({ items, startIdx, onClose }) {
 
             <motion.div className="flex items-center gap-3 mb-8"
               initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
-              <span className="text-[#00F5FF] font-mono text-xs font-black tracking-[0.3em]">{String(idx + 1).padStart(2, "0")}</span>
+              <span className="text-[#ff6b1a] font-mono text-xs font-black tracking-[0.3em]">{String(idx + 1).padStart(2, "0")}</span>
               <div className="w-10 h-px bg-white/10" />
               <span className="text-white/20 font-mono text-xs tracking-[0.3em]">{String(items.length).padStart(2, "0")}</span>
             </motion.div>
 
             <motion.span className="inline-block self-start px-3.5 py-1 rounded-full text-[8px] font-black uppercase tracking-[0.4em] mb-5 border"
-              style={{ background: "rgba(0,245,255,0.08)", borderColor: "rgba(0,245,255,0.15)", color: "#00F5FF" }}
+              style={{ background: "rgba(255,107,26,0.08)", borderColor: "rgba(255,107,26,0.15)", color: "#ff6b1a" }}
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
               {current.category}
             </motion.span>
@@ -178,7 +177,7 @@ function ProjectShowcase({ items, startIdx, onClose }) {
                   onClick={() => { onClose(); router.push(`/project/${current.id}`); }}
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/15 text-white/60 hover:text-white hover:border-white/40 rounded-full text-[9px] uppercase tracking-[0.3em] font-bold transition-all duration-200"
                 >
-                  Détails complets
+                  Full Details
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
                 </button>
               )}
@@ -187,7 +186,7 @@ function ProjectShowcase({ items, startIdx, onClose }) {
 
             <motion.p className="mt-auto pt-6 text-[8px] text-white/10 tracking-[0.5em] uppercase"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-              Collection {current.category} · {items.length} réalisations
+              {current.category} Collection · {items.length} works
             </motion.p>
           </motion.div>
         </motion.div>
@@ -203,7 +202,7 @@ function ProjectShowcase({ items, startIdx, onClose }) {
           {items.map((_, i) => (
             <button key={i} onClick={() => go(i)} title={items[i]?.text} className="flex items-center justify-center">
               <motion.div className="rounded-full"
-                animate={{ width: i === idx ? 6 : 4, height: i === idx ? 18 : 4, backgroundColor: i === idx ? "#00F5FF" : "rgba(255,255,255,0.12)" }}
+                animate={{ width: i === idx ? 6 : 4, height: i === idx ? 18 : 4, backgroundColor: i === idx ? "#ff6b1a" : "rgba(255,255,255,0.12)" }}
                 transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }} />
             </button>
           ))}
@@ -255,22 +254,6 @@ export default function ProjectsPage() {
   
   const [activeCategory, setActiveCategory] = useState(getInitialCategory());
 
-  // Repli local : quand le CMS (Supabase) n'est pas configuré,
-  // la galerie utilise les projets réels définis dans work/content.js
-  // au lieu d'afficher une galerie vide.
-  const useFallback = () => {
-    const mapped = FALLBACK_PROJECTS.map((p) => ({
-      id: p.id,
-      image: `https://picsum.photos/seed/${p.id}/800/600?grayscale`,
-      text: p.title,
-      category: p.category,
-      description: p.description,
-      tech: p.tech || "",
-      link: p.link,
-    }));
-    setAllFull(mapped);
-  };
-
   useEffect(() => {
     fetch("/api/works")
       .then((r) => r.ok ? r.json() : [])
@@ -295,11 +278,11 @@ export default function ProjectsPage() {
           }));
           setAllFull(mapped);
         } else {
-          useFallback();
+          setAllFull([]);
         }
       })
       .catch(() => {
-        useFallback();
+        setAllFull([]);
       });
   }, []);
 
@@ -354,7 +337,7 @@ export default function ProjectsPage() {
             />
           ) : items !== null && items.length === 0 ? (
             <div className="flex items-center justify-center w-full h-full text-white/30 text-xs tracking-[0.3em] uppercase">
-              Aucun projet dans cette catégorie.
+              No projects found in this category.
             </div>
           ) : null}
         </div>
@@ -364,23 +347,23 @@ export default function ProjectsPage() {
 
         {/* Heading — desktop only */}
         <div className="hidden md:block absolute top-0 left-0 px-6 md:px-20 pt-24 md:pt-28 pointer-events-none z-20">
-          <p className="font-sans text-[10px] text-[#00F5FF] tracking-[0.5em] uppercase mb-2 md:mb-3 font-medium">
-            Portfolio
+          <p className="font-sans text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-2 md:mb-3 font-medium">
+            Creative
           </p>
           <h1
             className="font-sans font-black tracking-tighter text-white leading-none"
             style={{ fontSize: "clamp(2rem, 8vw, 8rem)" }}
           >
-            Réalisations.
+            Archive.
           </h1>
         </div>
 
         {/* Mobile: section title in top nav area */}
         <div className="md:hidden absolute top-0 left-0 right-0 px-6 pt-20 pointer-events-none z-20 flex items-center justify-between">
           <div>
-            <p className="text-[9px] text-[#00F5FF] tracking-[0.4em] uppercase font-medium">Portfolio</p>
+            <p className="text-[9px] text-[#ff6b1a] tracking-[0.4em] uppercase font-medium">Creative</p>
             <p className="text-white font-black tracking-tighter text-2xl leading-none">
-              {activeCategory === "ALL" ? "Réalisations." : activeCategory.charAt(0) + activeCategory.slice(1).toLowerCase()}
+              {activeCategory === "ALL" ? "Archive." : activeCategory.charAt(0) + activeCategory.slice(1).toLowerCase()}
             </p>
           </div>
         </div>
@@ -391,11 +374,11 @@ export default function ProjectsPage() {
             <button
               key={cat}
               onClick={() => handleCategoryClick(cat)}
-              className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300 relative ${activeCategory === cat ? "text-[#00F5FF]" : "text-white/40 hover:text-white"}`}
+              className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300 relative ${activeCategory === cat ? "text-[#ff6b1a]" : "text-white/40 hover:text-white"}`}
             >
               {cat}
               {activeCategory === cat && (
-                <motion.div layoutId="activeFilter" className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#00F5FF]" />
+                <motion.div layoutId="activeFilter" className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#ff6b1a]" />
               )}
             </button>
           ))}
@@ -409,12 +392,12 @@ export default function ProjectsPage() {
                 key={cat}
                 onClick={() => handleCategoryClick(cat)}
                 className={`text-[9px] uppercase tracking-[0.15em] font-bold transition-all duration-200 relative ${
-                  activeCategory === cat ? "text-[#00F5FF]" : "text-white/35 hover:text-white"
+                  activeCategory === cat ? "text-[#ff6b1a]" : "text-white/35 hover:text-white"
                 }`}
               >
                 {cat}
                 {activeCategory === cat && (
-                  <motion.div layoutId="activeFilterMobile" className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] bg-[#00F5FF]" />
+                  <motion.div layoutId="activeFilterMobile" className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] bg-[#ff6b1a]" />
                 )}
               </button>
             ))}
@@ -431,7 +414,7 @@ export default function ProjectsPage() {
             <motion.div
               animate={{ x: [-8, 8, -8] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="w-1.5 h-1.5 bg-[#00F5FF] rounded-full"
+              className="w-1.5 h-1.5 bg-[#ff6b1a] rounded-full"
             />
           </div>
 

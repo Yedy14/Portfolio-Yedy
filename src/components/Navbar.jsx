@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,10 +9,11 @@ import ContactPopup from "./ContactPopup";
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { NAV_LINKS, NAV_LINKS_FULL } from "@/data/site";
-
-const LINKS = NAV_LINKS;
-const MOBILE_LINKS = NAV_LINKS_FULL;
+const LINKS = [
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Navbar() {
   const navRef    = useRef(null);
@@ -63,9 +65,9 @@ export default function Navbar() {
   };
 
   const getBackLabel = (path) => {
-    if (path?.startsWith("/project/")) return "Projets";
+    if (path?.startsWith("/project/")) return "Works";
     if (path?.startsWith("/blog/")) return "Blog";
-    return "Retour";
+    return "Back";
   };
 
   return (
@@ -80,19 +82,21 @@ export default function Navbar() {
         {/* Logo + back */}
         <div className="relative flex items-center gap-5">
           {pathname !== "/" && (
-            <Link href={getBackLink(pathname)} className="flex items-center gap-2 text-white/40 hover:text-[#00F5FF] transition-colors duration-300 group">
+            <Link href={getBackLink(pathname)} className="flex items-center gap-2 text-white/40 hover:text-[#ff6b1a] transition-colors duration-300 group">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="transition-transform duration-300 group-hover:-translate-x-1">
                 <path d="M11 14L6 9l5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="text-[10px] tracking-[0.35em] uppercase font-medium">{getBackLabel(pathname)}</span>
             </Link>
           )}
-          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-300" aria-label="Yédydia — Accueil">
-            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#00F5FF] text-black font-black text-lg leading-none">Y</span>
-            <span className="flex flex-col leading-none">
-              <span className="text-white font-black tracking-tight text-sm">YÉDYDIA</span>
-              <span className="text-[8px] tracking-[0.3em] uppercase text-white/40 mt-1">Innov'Yed</span>
-            </span>
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity duration-300">
+            <Image
+              src="/photo/logo navbar inverse.png"
+              alt="Sarang — Portfolio Designer & Creative Developer"
+              width={120} height={40}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
         </div>
 
@@ -102,7 +106,7 @@ export default function Navbar() {
             const active = pathname === href;
             return (
               <li key={href}>
-                <Link href={href} className={`px-4 py-2 transition-all duration-300 ${active ? "text-[#00F5FF]" : "text-white/50 hover:text-white/80"}`}>
+                <Link href={href} className={`px-4 py-2 transition-all duration-300 ${active ? "text-[#ff6b1a]" : "text-white/50 hover:text-white/80"}`}>
                   {label}
                 </Link>
               </li>
@@ -112,9 +116,9 @@ export default function Navbar() {
             <button 
               suppressHydrationWarning
               onClick={() => setIsContactOpen(true)}
-              className="px-5 py-2 bg-[#00F5FF] text-black font-bold rounded-full hover:bg-white hover:text-black transition-colors duration-300 flex items-center gap-2"
+              className="px-5 py-2 bg-[#ff6b1a] text-black font-bold rounded-full hover:bg-white hover:text-black transition-colors duration-300 flex items-center gap-2"
             >
-              Démarrer
+              Start Now
             </button>
           </li>
         </ul>
@@ -136,17 +140,17 @@ export default function Navbar() {
       {open && (
         <div
           ref={menuRef}
-          className="fixed inset-0 z-[55] bg-black/95 backdrop-blur-xl flex flex-col justify-center items-start px-10 md:hidden overflow-y-auto py-24"
+          className="fixed inset-0 z-[55] bg-black/95 backdrop-blur-xl flex flex-col justify-center items-start px-10 md:hidden"
         >
-          <ul className="flex flex-col gap-5 w-full my-auto">
-            {MOBILE_LINKS.map(({ label, href }) => {
+          <ul className="flex flex-col gap-8 w-full">
+            {LINKS.map(({ label, href }) => {
               const active = pathname === href;
               return (
                 <li key={href} className="mobile-nav-link">
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className={`block text-3xl font-black tracking-tighter transition-colors duration-300 ${active ? "text-[#00F5FF]" : "text-white/70 hover:text-white"}`}
+                    className={`block text-4xl font-black tracking-tighter transition-colors duration-300 ${active ? "text-[#ff6b1a]" : "text-white/70 hover:text-white"}`}
                   >
                     {label}
                   </Link>
@@ -160,14 +164,14 @@ export default function Navbar() {
                    setOpen(false);
                    setIsContactOpen(true);
                  }}
-                 className="w-full py-4 bg-[#00F5FF] text-black text-xl font-bold tracking-tight rounded-2xl hover:bg-white hover:text-black transition-colors duration-300"
+                 className="w-full py-4 bg-[#ff6b1a] text-black text-xl font-bold tracking-tight rounded-2xl hover:bg-white hover:text-black transition-colors duration-300"
                >
-                 Démarrer
+                 Start Now
                </button>
             </li>
           </ul>
           <div className="mobile-nav-link mt-16 text-[10px] text-white/20 tracking-[0.4em] uppercase">
-            Yédydia · Innov'Yed
+            Sarang · Portfolio
           </div>
         </div>
       )}

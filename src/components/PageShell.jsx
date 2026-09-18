@@ -10,9 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function PageShell({ children }) {
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,

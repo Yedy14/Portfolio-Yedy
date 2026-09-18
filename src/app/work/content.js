@@ -1,77 +1,43 @@
 // ─────────────────────────────────────────────
-//  WORK SECTION — Yédydia / Innov'Yed Solutions
-//  Projets réels. Statuts et détails techniques : [À compléter].
+//  WORK SECTION — edit everything here
 // ─────────────────────────────────────────────
 
 export const SECTION = {
-  label: "Projets sélectionnés",
-  heading: "Réalisations.",
+  label: "Selected Work",
+  heading: "Projects.",
 };
 
 export const FALLBACK_PROJECTS = [
   {
-    id: "happy",
+    id: "f1",
     num: "01",
-    category: "IA & Automatisation",
-    title: "HAPPY",
+    category: "Web & Interaction",
+    title: "Creative Developer",
     description:
-      "Assistant personnel intelligent pensé pour fonctionner sur plusieurs plateformes.",
-    tech: "",
+      "Crafting immersive websites and digital experiences with smooth interactions, cinematic layouts, and visually rich animations.",
+    tech: "React · Next.js · GSAP",
     link: null,
     review: null,
   },
   {
-    id: "dis-moi",
+    id: "f2",
     num: "02",
-    category: "Applications",
-    title: "DIS-MOI",
+    category: "Film & Motion",
+    title: "Motion & Video Editor",
     description:
-      "Application de rappels intelligente pour ne rien oublier d'important.",
-    tech: "",
+      "Editing cinematic short films, reels, and brand videos with precision color grading, sound design, and visual storytelling.",
+    tech: "DaVinci Resolve · After Effects · Premiere Pro",
     link: null,
     review: null,
   },
   {
-    id: "netbank-yotta",
+    id: "f3",
     num: "03",
-    category: "Website",
-    title: "NetBank Yotta",
+    category: "E-Commerce",
+    title: "Shopify Development",
     description:
-      "Solution de banque numérique articulée autour de la connexion et du savoir.",
-    tech: "",
-    link: null,
-    review: null,
-  },
-  {
-    id: "youthworld",
-    num: "04",
-    category: "Website",
-    title: "YouthWorld",
-    description:
-      "Plateforme communautaire pour rassembler et faire interagir une communauté.",
-    tech: "",
-    link: null,
-    review: null,
-  },
-  {
-    id: "pc-doctor-web",
-    num: "05",
-    category: "Website",
-    title: "PC Doctor Web",
-    description:
-      "Système de diagnostic informatique pour identifier et résoudre les problèmes PC.",
-    tech: "",
-    link: null,
-    review: null,
-  },
-  {
-    id: "innov-yed-solutions",
-    num: "06",
-    category: "Ecosystem",
-    title: "Innov'Yed Solutions",
-    description:
-      "Écosystème technologique : conception, réalisation et maintenance de solutions.",
-    tech: "",
+      "Building high-converting Shopify stores with custom Liquid themes, app integrations, and seamless checkout experiences.",
+    tech: "Shopify Liquid · JavaScript · Tailwind CSS",
     link: null,
     review: null,
   },

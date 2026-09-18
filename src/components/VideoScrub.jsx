@@ -211,10 +211,10 @@ export default function VideoScrub() {
   }, [isMobile, mounted]);
 
   const SECTION_IMAGES = [
-    { id: null,              src: '/photo/yedydia-orb.svg'   }, // default / hero
-    { id: 'about-section',  src: '/photo/yedydia-grid.svg'  },
-    { id: 'work-section',   src: '/photo/yedydia-orb.svg'   },
-    { id: 'contact-section', src: '/photo/yedydia-grid.svg' },
+    { id: null,              src: '/photo/hero.webp'    }, // default / hero
+    { id: 'about-section',  src: '/photo/about.webp'   },
+    { id: 'work-section',   src: '/photo/project.webp' },
+    { id: 'contact-section', src: '/photo/contact.webp' },
   ];
 
   // Mobile scroll-driven state — updated directly via RAF, no React re-renders
@@ -313,7 +313,7 @@ export default function VideoScrub() {
         <div 
           className="absolute inset-0 w-full h-full opacity-60"
           style={{
-            backgroundImage: "url('/photo/yedydia-orb.svg')",
+            backgroundImage: "url('/photo/hero.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center top",
           }}
@@ -358,17 +358,15 @@ export default function VideoScrub() {
     );
   }
 
-  // Desktop: Full scroll-scrubbing video experience.
-  // Teinte recalibrée vers le cyan de marque (footage d'origine orangé).
-  const grade = { filter: "hue-rotate(155deg) saturate(1.05) brightness(0.92)" };
+  // Desktop: Full scroll-scrubbing video experience
   return (
     <div className="fixed inset-0 z-0 bg-[#0a0a0a]">
-      <video ref={fwdRef} src="/videos/optimized.mp4" poster="/photo/yedydia-orb.svg"
-        className={cls} style={{ ...sty, ...grade, opacity: 1 }}
+      <video ref={fwdRef} src="/videos/optimized.mp4" poster="/photo/hero.webp"
+        className={cls} style={{ ...sty, opacity: 1 }}
         muted playsInline preload="metadata"
         aria-hidden="true" suppressHydrationWarning />
       <video ref={revRef} src="/videos/optimized-rev.mp4"
-        className={cls} style={{ ...sty, ...grade, opacity: 0 }}
+        className={cls} style={{ ...sty, opacity: 0 }}
         muted playsInline preload="none"
         aria-hidden="true" suppressHydrationWarning />
       <div className="absolute inset-0 bg-black/35" />

@@ -2,12 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { trackClick } from "@/lib/trackClick";
-import { SITE, CONTACT_INFO, SOCIALS } from "@/data/site";
 
 const LINKS = [
-  { label: "Projets",   href: "/projects" },
-  { label: "À propos",  href: "/about"    },
-  { label: "Contact",   href: "/contact"  },
+  { label: "About",   href: "/about"   },
+  { label: "Contact", href: "/contact" },
 ];
 
 const SOCIAL_KEYS = [
@@ -21,13 +19,9 @@ const SOCIAL_KEYS = [
   { key: "whatsapp",  label: "WhatsApp"  },
 ];
 
-// Replis affichés quand le CMS (Supabase) n'est pas configuré.
-// href: null => libellé affiché en attente, sans lien inventé.
-const FALLBACK_SOCIALS = SOCIALS.map((s) => ({ label: s.label, href: s.href }));
-
 export default function Footer() {
   const ref = useRef(null);
-  const [socials, setSocials] = useState(FALLBACK_SOCIALS);
+  const [socials, setSocials] = useState([]);
 
   useEffect(() => {
     fetch("/api/settings?key=social_links")
@@ -38,7 +32,7 @@ export default function Footer() {
           label: s.label,
           href:  data.value[s.key].trim(),
         }));
-        if (active.length > 0) setSocials(active);
+        setSocials(active);
       })
       .catch(() => {});
   }, []);
@@ -74,14 +68,14 @@ export default function Footer() {
 
         {/* name + tagline */}
         <div>
-          <p className="text-[10px] text-[#00F5FF] tracking-[0.5em] uppercase mb-4 font-medium">
-            {SITE.baseline}
+          <p className="text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">
+            Creative Developer
           </p>
           <h2
             className="font-black tracking-tighter leading-[0.85]"
             style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
           >
-            <span className="block text-white">{SITE.name}</span>
+            <span className="block text-white">Sarang</span>
           </h2>
         </div>
 
@@ -92,7 +86,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="text-white/40 hover:text-[#00F5FF] transition-colors duration-300"
+                className="text-white/40 hover:text-[#ff6b1a] transition-colors duration-300"
               >
                 {label}
               </Link>
@@ -102,26 +96,16 @@ export default function Footer() {
           {socials.length > 0 && (
             <div className="flex flex-wrap gap-8 text-[11px] uppercase tracking-[0.3em] font-medium">
               {socials.map(({ label, href }) => (
-                href ? (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackClick(`social-${label.toLowerCase()}`, href)}
-                    className="text-white/25 hover:text-white/70 transition-colors duration-300"
-                  >
-                    {label}
-                  </a>
-                ) : (
-                  <span
-                    key={label}
-                    title="Lien à compléter"
-                    className="text-white/15 cursor-default"
-                  >
-                    {label} ···
-                  </span>
-                )
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackClick(`social-${label.toLowerCase()}`, href)}
+                  className="text-white/25 hover:text-white/70 transition-colors duration-300"
+                >
+                  {label}
+                </a>
               ))}
             </div>
           )}
@@ -137,17 +121,12 @@ export default function Footer() {
           className="text-[10px] text-white/20 tracking-widest"
           style={{ fontFamily: '"Times New Roman", Times, serif', fontStyle: "italic" }}
         >
-          {CONTACT_INFO.email}
+          sarangwalle@gmail.com
         </p>
         <p className="text-[10px] text-white/15 tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} {SITE.name} · {SITE.brand}. Tous droits réservés.
+          © {new Date().getFullYear()} Sarang Walle. All rights reserved.
         </p>
       </div>
-
-      {/* discreet template credit */}
-      <p className="mt-6 text-[9px] text-white/10 tracking-[0.25em] uppercase">
-        Design system basé sur le template open-source Sarang
-      </p>
 
     </footer>
   );

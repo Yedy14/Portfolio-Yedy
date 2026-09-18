@@ -6,8 +6,7 @@
 }
 
 :root {
-  /* Accent Innov'Yed — cyan */
-  --accent: #00F5FF;
+  --orange: #ff6b1a;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -23,7 +22,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #040B18;
+  background: #080808;
   color: #fff;
   font-family: var(--font-inter), "Inter", sans-serif;
   overflow-x: hidden;
@@ -35,12 +34,12 @@ html {
 html::-webkit-scrollbar { display: none; }
 
 ::selection {
-  background: var(--accent);
+  background: var(--orange);
   color: #000;
 }
 
 ::-moz-selection {
-  background: var(--accent);
+  background: var(--orange);
   color: #000;
 }
 
@@ -60,7 +59,7 @@ html::-webkit-scrollbar { display: none; }
   font-style: italic;
   font-weight: 400;
   color: transparent;
-  -webkit-text-stroke: 1.2px #00F5FF;
+  -webkit-text-stroke: 1.2px #ff6b1a;
   letter-spacing: -0.01em;
 }
 
@@ -83,23 +82,23 @@ html::-webkit-scrollbar { display: none; }
 /* ── Custom slim scrollbar for dropdowns & panels ─────────────── */
 .custom-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 245, 255, 0.4) transparent;
+  scrollbar-color: rgba(255, 107, 26, 0.4) transparent;
 }
 .custom-scroll::-webkit-scrollbar { width: 4px; }
 .custom-scroll::-webkit-scrollbar-track { background: transparent; }
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: rgba(0, 245, 255, 0.35);
+  background: rgba(255, 107, 26, 0.35);
   border-radius: 99px;
 }
 .custom-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 245, 255, 0.65);
+  background: rgba(255, 107, 26, 0.65);
 }
 
 /* Admin panel scrollbar */
-.admin-cursor { scrollbar-width: thin; scrollbar-color: rgba(0,245,255,0.3) transparent; }
+.admin-cursor { scrollbar-width: thin; scrollbar-color: rgba(255,107,26,0.3) transparent; }
 .admin-cursor::-webkit-scrollbar { width: 4px; }
 .admin-cursor::-webkit-scrollbar-track { background: transparent; }
-.admin-cursor::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.3); border-radius: 99px; }
+.admin-cursor::-webkit-scrollbar-thumb { background: rgba(255,107,26,0.3); border-radius: 99px; }
 
 /* ── Bottom blur fade — masks bottom edge of page ─────────────── */
 .bottom-blur {
@@ -113,8 +112,8 @@ html::-webkit-scrollbar { display: none; }
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(4, 11, 24, 0.6) 50%,
-    rgba(4, 11, 24, 0.95) 100%
+    rgba(8, 8, 8, 0.6) 50%,
+    rgba(8, 8, 8, 0.95) 100%
   );
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -237,29 +236,5 @@ html::-webkit-scrollbar { display: none; }
   .admin-main {
     margin-left: 0 !important;
     padding-top: 80px !important;
-  }
-}
-
-/* ── Accessibilité : focus visible ────────────────────────────── */
-:focus-visible {
-  outline: 2px solid #00F5FF;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* ── Accessibilité : réduction des animations ─────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .grain-overlay {
-    display: none;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
