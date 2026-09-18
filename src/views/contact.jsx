@@ -1,3 +1,5 @@
+"use client";
+
 import Contact from "@/components/Contact";
 import GradientBlinds from "@/components/GradientBlinds";
 import { CONTACT_INFO } from "@/data/site";
