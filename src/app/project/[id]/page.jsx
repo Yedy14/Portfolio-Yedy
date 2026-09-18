@@ -71,14 +71,14 @@ export default function ProjectPage() {
 
         {loading && (
           <div className="flex items-center justify-center min-h-screen">
-            <div className="w-6 h-6 border-2 border-white/20 border-t-[#ff6b1a] rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-white/20 border-t-[#00F5FF] rounded-full animate-spin" />
           </div>
         )}
 
         {notFound && (
           <div className="flex flex-col items-center justify-center min-h-screen gap-6">
             <p className="text-white/20 text-sm tracking-widest uppercase">Project not found</p>
-            <Link href="/projects" className="text-[#ff6b1a] text-[11px] tracking-[0.4em] uppercase hover:opacity-70 transition-opacity">
+            <Link href="/projects" className="text-[#00F5FF] text-[11px] tracking-[0.4em] uppercase hover:opacity-70 transition-opacity">
               Back to projects
             </Link>
           </div>
@@ -112,7 +112,7 @@ export default function ProjectPage() {
               <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 pb-10 md:pb-14">
                 <div className="proj-hero-text">
                   {project.category && (
-                    <span className="inline-block text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase font-medium mb-3 border border-[#ff6b1a]/30 px-3 py-1 rounded-full">
+                    <span className="inline-block text-[10px] text-[#00F5FF] tracking-[0.5em] uppercase font-medium mb-3 border border-[#00F5FF]/30 px-3 py-1 rounded-full">
                       {project.category}
                     </span>
                   )}
@@ -158,7 +158,7 @@ export default function ProjectPage() {
                   )}
 
                   {project.review && (
-                    <blockquote className="border-l-2 border-[#ff6b1a]/40 pl-6 mb-12">
+                    <blockquote className="border-l-2 border-[#00F5FF]/40 pl-6 mb-12">
                       <p className="text-white/50 italic text-base leading-relaxed font-serif">"{project.review}"</p>
                     </blockquote>
                   )}
@@ -240,7 +240,7 @@ export default function ProjectPage() {
                         <ul className="flex flex-col gap-1.5">
                           {services.map((s) => (
                             <li key={s} className="flex items-center gap-2 text-white/60 text-sm">
-                              <span className="w-1 h-1 rounded-full bg-[#ff6b1a] shrink-0" />
+                              <span className="w-1 h-1 rounded-full bg-[#00F5FF] shrink-0" />
                               {s}
                             </li>
                           ))}
@@ -253,7 +253,7 @@ export default function ProjectPage() {
                         href={safeUrl(project.link)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 w-full flex items-center justify-center gap-2 bg-[#ff6b1a] text-black font-bold py-3 rounded-xl text-[11px] uppercase tracking-widest hover:bg-[#ff8c42] transition-colors duration-300"
+                        className="mt-2 w-full flex items-center justify-center gap-2 bg-[#00F5FF] text-black font-bold py-3 rounded-xl text-[11px] uppercase tracking-widest hover:bg-[#6FF3FF] transition-colors duration-300"
                       >
                         View Live
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -269,7 +269,7 @@ export default function ProjectPage() {
 
             {/* ── CTA ── */}
             <div className="border-t border-white/5 py-24 px-6 md:px-16 text-center">
-              <p className="text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-5 font-medium">Start Your Journey</p>
+              <p className="text-[10px] text-[#00F5FF] tracking-[0.5em] uppercase mb-5 font-medium">Start Your Journey</p>
               <h2 className="font-black tracking-tighter leading-[0.9] mb-8 text-white" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}>
                 Ready to Elevate<br />
                 <span className="ghost-orange italic font-serif">Your Brand Presence?</span>
@@ -279,9 +279,9 @@ export default function ProjectPage() {
               </p>
               <Link
                 href="/#contact-section"
-                className="inline-flex items-center gap-3 bg-[#ff6b1a] text-black font-black px-8 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#ff8c42] transition-colors duration-300"
+                className="inline-flex items-center gap-3 bg-[#00F5FF] text-black font-black px-8 py-4 rounded-full text-[11px] uppercase tracking-[0.25em] hover:bg-[#6FF3FF] transition-colors duration-300"
               >
-                Get In Touch
+                Discuter d'un projet
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>

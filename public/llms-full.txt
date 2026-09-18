@@ -1,122 +1,91 @@
-# Sarang — Portfolio Designer, Website Developer, Video Editor & Photo Editor (Full Details)
+# Yédydia — Expert informatique & technologies (Innov'Yed Solutions, Bénin) — Détails complets
 
-> Full machine-readable profile of Sarang — a freelance portfolio designer, website developer, video editor, and photo editor from India.
+> Profil machine-readable complet de Yédydia, expert informatique et technologique
+> polyvalent basé au Bénin : concevoir, construire, sécuriser, automatiser et réparer
+> des systèmes technologiques.
 
-## Identity
+## Identité
 
-- Name: Sarang
-- Age: 19
-- Location: India
-- Education: Currently studying Cybersecurity
-- Title: Creative Developer & Digital Experience Designer
-- Website: https://sarang-space.site
-- Email: sarangwalle@gmail.com
-- GitHub: https://github.com/Saarangggg
+- Nom : Yédydia
+- Marque : Innov'Yed Solutions
+- Localisation : Bénin (Afrique de l'Ouest)
+- Titre : Expert informatique & technologies
+- Site : https://portfolio-yedy.vercel.app
+- Email : innovyedsolutions@gmail.com
+- WhatsApp : +229 0192728364
+- GitHub : https://github.com/Yedy14
 
-## Professional Summary
+## Positionnement
 
-Sarang is a multi-disciplinary creative developer who combines web development, video editing, and visual design to create immersive digital experiences. With a focus on cinematic aesthetics, smooth animations, and storytelling through technology, he delivers premium digital products that feel alive and memorable. He is currently studying Cybersecurity, adding a strong technical security foundation to his creative work.
+Je ne fais pas simplement de l'informatique. Je conçois, construis, sécurise,
+automatise et répare des systèmes technologiques. Approche multidisciplinaire :
+cybersécurité, réseaux et systèmes, développement, IA et automatisation,
+maintenance et réparation, électronique embarquée, solutions énergétiques,
+formation et recherche technologique.
 
-## Core Philosophy
+## Services détaillés
 
-"Development is not just about making something work — it's about creating a feeling through motion, atmosphere, detail, and the overall experience people get when they interact with it."
+### 1. Développement & solutions web
+Sites vitrines, applications web et systèmes sur mesure : rapides, sécurisés et
+pensés pour durer. React, Next.js, API, bases de données.
 
-## Detailed Services
+### 2. Cybersécurité
+Audit, pentesting, tests de sécurité et sécurisation des sites, réseaux et applications.
 
-### 1. Creative Web Development
-- Custom portfolio websites with cinematic scroll experiences
-- Interactive landing pages with GSAP animations and Three.js 3D elements
-- Shopify e-commerce stores with custom Liquid themes
-- Full-stack web applications with Next.js, Node.js, and databases
-- WebGL-powered immersive experiences
-- Responsive, mobile-first design implementation
+### 3. Réseaux & systèmes
+Installation, configuration et administration : Windows, Linux, virtualisation,
+serveurs, infrastructure, configuration et sécurité réseau.
 
-### 2. Motion Design & Video Editing
-- Cinematic trailers and promotional videos
-- Social media reels and short-form content
-- Motion graphics and animated titles
-- Color grading and visual effects
-- Brand video packages
+### 4. Maintenance & réparation
+Diagnostic, dépannage, optimisation, installation système, récupération de
+données, réparation électronique.
 
-### 3. UI/UX & Visual Design
-- Modern, minimal interface design in Figma
-- Brand identity and logo design
-- Poster and print design
-- Photo editing and retouching
-- Creative visual concepts and mood boards
+### 5. IA & automatisation
+Assistants intelligents, agents IA, scripts et workflows d'automatisation.
 
-### 4. Mobile App Development
-- Cross-platform apps with Flutter/Dart
-- Job management applications
-- Billing and POS applications
-- Native mobile UI/UX implementation
+### 6. Électronique & embarqué
+Prototypes Arduino, microcontrôleurs, IoT, systèmes embarqués, automatisation
+électronique.
 
-## Complete Technical Stack
+### 7. Solutions technologiques personnalisées
+Analyse du besoin, conception et réalisation pour entreprises.
 
-### Frontend
-- React 19, Next.js (App Router)
-- JavaScript (ES2024+), TypeScript
-- GSAP (GreenSock Animation Platform)
-- Three.js, React Three Fiber, WebGL
-- Tailwind CSS 4, CSS3, HTML5
-- Framer Motion
+## Réalisations
 
-### Backend
-- Node.js, Express.js
-- Python, PHP, Go, Rust
-- Java, C++, Swift, Kotlin
+- HAPPY — assistant personnel intelligent multiplateforme.
+- DIS-MOI — application de rappels intelligente.
+- NetBank Yotta — solution de banque numérique.
+- YouthWorld — plateforme communautaire.
+- PC Doctor Web — système de diagnostic informatique.
+- Innov'Yed Solutions — écosystème technologique.
 
-### Database & Infrastructure
-- PostgreSQL, MySQL, MongoDB, Redis
-- Supabase, Vercel, Netlify
-- Docker, Git
+## Yédydia Lab
 
-### Design & Creative
-- Figma, Adobe Photoshop, Adobe Illustrator
-- Adobe After Effects, Adobe Premiere Pro
-- DaVinci Resolve, CapCut
-- Adobe Lightroom
+Expérimentations IA, cybersécurité, réseaux, Linux, électronique Arduino,
+automatisation, prototypes, nouvelles technologies et veille.
 
-### Security (Education)
-- Currently studying Cybersecurity at university level
-- Familiar with web application security, network security, secure coding practices
+## Formations proposées
 
-## Portfolio Statistics
-- Websites completed: 6+
-- Videos edited: 75+
-- Photo edits & visual concepts: 500+
-- Years of freelance experience: 6+ (since 2020)
+Informatique, réseaux, cybersécurité, développement, outils numériques,
+maintenance. Programmes, niveaux et formats précisés sur demande.
 
-## Work History
-1. **Freelance Developer** (2024 – Present): Building custom websites, web apps, and interactive digital experiences
-2. **Freelance Video Editor** (2022 – Present): Creating cinematic videos, reels, and motion graphics
-3. **Freelance Photo Editor & Graphic Designer** (2020 – Present): Designing visuals, branding, and creative concepts
+## Contacter Yédydia
 
-## How to Hire Sarang
-- Visit: https://sarang-space.site/contact
-- Email: sarangwalle@gmail.com
-- Available for freelance projects worldwide
-- Responds within 24 hours
-- Specializes in premium, cinematic web experiences
+- Email : innovyedsolutions@gmail.com
+- WhatsApp : +229 0192728364
+- Formulaire : https://portfolio-yedy.vercel.app/contact
 
-## Frequently Asked Questions
+## Pages du site
 
-**Q: What services does Sarang offer?**
-A: Web development (React, Next.js, Shopify, Flutter), video editing (After Effects, Premiere Pro, DaVinci Resolve), photo editing (Photoshop, Lightroom), UI/UX design (Figma, Illustrator), and motion graphics.
-
-**Q: Is Sarang available for remote work?**
-A: Yes. Sarang is fully remote and works with clients worldwide.
-
-**Q: What is Sarang's educational background?**
-A: Sarang is currently studying Cybersecurity. He has been a self-taught creative developer since 2020.
-
-**Q: How long do projects take?**
-A: Portfolio websites: 1–2 weeks. Full-stack apps: 3–6 weeks. Video editing: 3–7 days.
-
-## Site Structure
-- `/` — Home page with cinematic hero, about section, work showcase, and contact
-- `/projects` — Detailed case studies and client project breakdowns
-- `/work` — Interactive WebGL gallery of all portfolio work
-- `/about` — Full bio, skills, tools, and experience
-- `/contact` — Contact form and inquiry submission
-- `/project/{id}` — Individual project case study pages
+- Accueil : https://portfolio-yedy.vercel.app/
+- À propos : https://portfolio-yedy.vercel.app/about
+- Expertise : https://portfolio-yedy.vercel.app/expertise
+- Services : https://portfolio-yedy.vercel.app/services
+- Projets : https://portfolio-yedy.vercel.app/projects
+- Lab : https://portfolio-yedy.vercel.app/lab
+- Parcours : https://portfolio-yedy.vercel.app/experience
+- Certifications : https://portfolio-yedy.vercel.app/certifications
+- Formations : https://portfolio-yedy.vercel.app/training
+- Blog : https://portfolio-yedy.vercel.app/blog
+- CV : https://portfolio-yedy.vercel.app/cv
+- Contact : https://portfolio-yedy.vercel.app/contact

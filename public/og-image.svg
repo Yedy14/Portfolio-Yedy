@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="oglow" cx="78%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="oy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8FFFFF"/>
+      <stop offset="100%" stop-color="#00C8DE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#040B18"/>
+  <rect width="1200" height="630" fill="url(#oglow)"/>
+  <circle cx="150" cy="315" r="86" fill="none" stroke="#00F5FF" stroke-opacity="0.6" stroke-width="6"/>
+  <text x="150" y="368" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="120" fill="url(#oy)">Y</text>
+  <text x="290" y="300" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="96" fill="#FFFFFF" letter-spacing="-2">Yédydia</text>
+  <text x="294" y="360" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#00F5FF" letter-spacing="6">EXPERT INFORMATIQUE &amp; TECHNOLOGIES</text>
+  <text x="294" y="410" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#FFFFFF" fill-opacity="0.55">Innov'Yed Solutions — Bénin</text>
+</svg>

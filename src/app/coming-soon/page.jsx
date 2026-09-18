@@ -77,8 +77,8 @@ export default function ComingSoonPage() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-5 py-16 text-center">
 
         {/* Name label */}
-        <p className="text-[9px] md:text-[10px] text-[#ff6b1a] tracking-[0.6em] uppercase font-bold mb-6 md:mb-10">
-          Sarang
+        <p className="text-[9px] md:text-[10px] text-[#00F5FF] tracking-[0.6em] uppercase font-bold mb-6 md:mb-10">
+          Yédydia · Innov'Yed Solutions
         </p>
 
         {/* Heading */}
@@ -86,22 +86,22 @@ export default function ComingSoonPage() {
           className="font-black tracking-tighter text-white leading-[0.88] mb-4 md:mb-6"
           style={{ fontSize: "clamp(3rem, 14vw, 9rem)" }}
         >
-          Coming
+          Bientôt
           <br />
-          <span className="ghost-orange">Soon.</span>
+          <span className="ghost-orange">disponible.</span>
         </h1>
 
         {/* Subtext */}
         <p className="text-white/35 text-xs md:text-sm font-light max-w-xs md:max-w-sm mb-8 md:mb-12 leading-relaxed">
-          Something cinematic is being built.
+          Quelque chose d'ambitieux est en préparation.
           <br />
-          Leave your email to be the first to know.
+          Laissez votre email pour être prévenu.
         </p>
 
         {/* Email form */}
         {emailStatus === "sent" ? (
-          <p className="text-[#ff6b1a] text-xs md:text-sm uppercase tracking-widest font-bold mb-8 md:mb-12">
-            You're on the list — see you soon.
+          <p className="text-[#00F5FF] text-xs md:text-sm uppercase tracking-widest font-bold mb-8 md:mb-12">
+            C'est noté — à bientôt.
           </p>
         ) : (
           <form
@@ -114,14 +114,14 @@ export default function ComingSoonPage() {
               placeholder="your@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white/8 border border-white/15 sm:border-r-0 rounded-full sm:rounded-r-none sm:rounded-l-full px-5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#ff6b1a]/50 transition-colors"
+              className="flex-1 bg-white/8 border border-white/15 sm:border-r-0 rounded-full sm:rounded-r-none sm:rounded-l-full px-5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#00F5FF]/50 transition-colors"
             />
             <button
               type="submit"
               disabled={emailStatus === "sending"}
-              className="bg-[#ff6b1a] text-black font-bold px-6 py-3 rounded-full sm:rounded-l-none sm:rounded-r-full text-[10px] uppercase tracking-widest hover:bg-[#ff8c42] transition-colors disabled:opacity-60 whitespace-nowrap"
+              className="bg-[#00F5FF] text-black font-bold px-6 py-3 rounded-full sm:rounded-l-none sm:rounded-r-full text-[10px] uppercase tracking-widest hover:bg-[#6FF3FF] transition-colors disabled:opacity-60 whitespace-nowrap"
             >
-              {emailStatus === "sending" ? "…" : "Notify Me"}
+              {emailStatus === "sending" ? "…" : "Me prévenir"}
             </button>
           </form>
         )}
@@ -136,7 +136,7 @@ export default function ComingSoonPage() {
         >
           <input
             type="password"
-            placeholder="Access password"
+            placeholder="Mot de passe d'accès"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={`flex-1 min-w-0 bg-white/5 border border-r-0 rounded-l-full px-4 py-2.5 text-xs text-white/60 placeholder:text-white/20 focus:outline-none transition-colors ${
@@ -150,7 +150,7 @@ export default function ComingSoonPage() {
             disabled={passStatus === "checking"}
             className="shrink-0 bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 font-medium px-4 py-2.5 rounded-r-full text-[9px] uppercase tracking-widest transition-all whitespace-nowrap"
           >
-            {passStatus === "checking" ? "…" : passStatus === "wrong" ? "Wrong" : "Enter"}
+            {passStatus === "checking" ? "…" : passStatus === "wrong" ? "Incorrect" : "Entrer"}
           </button>
         </form>
 

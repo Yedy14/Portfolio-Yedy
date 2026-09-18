@@ -7,13 +7,13 @@ import { SECTION, COUNTRIES as COUNTRY_LIST } from "@/app/contact/content";
 gsap.registerPlugin(ScrollTrigger);
 
 const boxInput =
-  "contact-field w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-[#ff6b1a]/60 transition-colors duration-300 text-sm";
+  "contact-field w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-[#00F5FF]/60 transition-colors duration-300 text-sm";
 
 export default function Contact({ standalone = false }) {
   const ref = useRef(null);
   const [form, setForm] = useState({ name: '', contact: '', reason: '' });
   const [contactType, setContactType] = useState('email'); // 'email' | 'phone'
-  const [selectedCC, setSelectedCC] = useState(COUNTRY_LIST[0]); // default India
+  const [selectedCC, setSelectedCC] = useState(COUNTRY_LIST[0]); // défaut : Bénin
   const [showCCPicker, setShowCCPicker] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [status, setStatus] = useState('idle');
@@ -36,9 +36,9 @@ export default function Contact({ standalone = false }) {
 
     if (contactType === 'phone') {
       const fullNumber = selectedCC.code + phoneNumber;
-      const myNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919999999999';
+      const myNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '2290192728364';
       const msg = encodeURIComponent(
-        `Hi Sarang! My name is ${form.name}.\n\nReason: ${form.reason}\n\nMy number: +${fullNumber}`
+        `Bonjour Yédydia ! Je suis ${form.name}.\n\nMotif : ${form.reason}\n\nMon numéro : +${fullNumber}`
       );
       window.open(`https://wa.me/${myNumber}?text=${msg}`, '_blank');
       return;
@@ -94,7 +94,7 @@ export default function Contact({ standalone = false }) {
       ref={ref}
       className="relative min-h-screen flex flex-col justify-center px-10 md:px-20 pt-24 md:pt-20 pb-24"
     >
-      <p className="contact-label text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-12 font-medium">
+      <p className="contact-label text-[10px] text-[#00F5FF] tracking-[0.5em] uppercase mb-12 font-medium">
         {SECTION.label}
       </p>
 
@@ -109,12 +109,12 @@ export default function Contact({ standalone = false }) {
           >
             {/* Name */}
             <div className="flex flex-col gap-1.5">
-              <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Name</span>
+              <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Nom</span>
               <input
                 suppressHydrationWarning
                 className={boxInput}
                 type="text"
-                placeholder="Your full name"
+                placeholder="Votre nom complet"
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -129,7 +129,7 @@ export default function Contact({ standalone = false }) {
                 onClick={() => setContactType('email')}
                 className={`flex-1 py-2 rounded-lg text-[10px] tracking-[0.2em] uppercase font-medium transition-all duration-200 ${
                   contactType === 'email'
-                    ? 'bg-[#ff6b1a] text-black'
+                    ? 'bg-[#00F5FF] text-black'
                     : 'bg-white/5 text-white/30 hover:bg-white/10'
                 }`}
               >
@@ -157,7 +157,7 @@ export default function Contact({ standalone = false }) {
                   suppressHydrationWarning
                   className={boxInput}
                   type="email"
-                  placeholder="email@example.com"
+                  placeholder="vous@exemple.com"
                   required
                   value={form.contact}
                   onChange={handleContactChange}
@@ -168,7 +168,7 @@ export default function Contact({ standalone = false }) {
             {/* Phone Field with Country Code Picker */}
             {contactType === 'phone' && (
               <div className="flex flex-col gap-1.5">
-                <span className="text-[10px] text-[#25D366]/60 tracking-[0.3em] uppercase">Phone (WhatsApp)</span>
+                <span className="text-[10px] text-[#25D366]/60 tracking-[0.3em] uppercase">Téléphone (WhatsApp)</span>
                 <div className="flex gap-2">
                   {/* Country code picker */}
                   <div className="relative">
@@ -205,7 +205,7 @@ export default function Contact({ standalone = false }) {
                     suppressHydrationWarning
                     className={boxInput}
                     type="tel"
-                    placeholder="98765 43210"
+                    placeholder="01 92 72 83 64"
                     required={contactType === 'phone'}
                     value={phoneNumber}
                     onChange={handlePhoneChange}
@@ -216,12 +216,12 @@ export default function Contact({ standalone = false }) {
 
             {/* Reason */}
             <div className="flex flex-col gap-1.5">
-              <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Reason</span>
+              <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Motif</span>
               <textarea
                 suppressHydrationWarning
                 className={boxInput + " resize-none"}
                 rows={4}
-                placeholder="Tell me what you're working on…"
+                placeholder="Décrivez votre besoin…"
                 required
                 value={form.reason}
                 onChange={(e) => setForm({ ...form, reason: e.target.value })}
@@ -229,12 +229,12 @@ export default function Contact({ standalone = false }) {
             </div>
 
             {status === 'error' && (
-              <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+              <p className="text-red-400 text-sm">Une erreur est survenue. Réessayez ou contactez-moi sur WhatsApp.</p>
             )}
 
             {status === 'sent' ? (
-              <p className="contact-btn text-[#ff6b1a] text-sm uppercase tracking-widest font-bold">
-                Message sent — I'll be in touch!
+              <p className="contact-btn text-[#00F5FF] text-sm uppercase tracking-widest font-bold">
+                Message envoyé — je vous répondrai vite !
               </p>
             ) : (
               <button
@@ -244,10 +244,10 @@ export default function Contact({ standalone = false }) {
                 className={`contact-btn w-full font-bold py-4 rounded-full text-sm uppercase tracking-widest transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${
                   contactType === 'phone'
                     ? 'bg-[#25D366] text-black hover:bg-[#1ebe5d]'
-                    : 'bg-[#ff6b1a] text-black hover:bg-[#ff8c42]'
+                    : 'bg-[#00F5FF] text-black hover:bg-[#6FF3FF]'
                 }`}
               >
-                {status === 'sending' ? 'Sending…' : contactType === 'phone' ? 'Open WhatsApp →' : 'Send Message'}
+                {status === 'sending' ? 'Envoi…' : contactType === 'phone' ? 'Ouvrir WhatsApp →' : 'Envoyer le message'}
               </button>
             )}
           </form>
@@ -262,12 +262,12 @@ export default function Contact({ standalone = false }) {
             className="contact-h font-black tracking-tighter leading-[0.88]"
             style={{ fontSize: "clamp(2.6rem, 5.5vw, 6.5rem)" }}
           >
-            <span className="block text-white">Let's build</span>
-            <span className="block text-white">something</span>
-            <span className="block ghost-orange">cool.</span>
+            <span className="block text-white">Construisons</span>
+            <span className="block text-white">quelque chose</span>
+            <span className="block ghost-orange">d'utile.</span>
           </h2>
           <p className="contact-label mt-6 text-white/20 text-sm font-light leading-relaxed text-right">
-            Got a project in mind?<br />Drop your details and I'll get back to you.
+            Un projet en tête ?<br />Laissez vos coordonnées, je vous répondrai vite.
           </p>
         </div>
 

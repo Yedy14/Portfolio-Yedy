@@ -1,13 +1,20 @@
 import { createClient } from "@supabase/supabase-js";
 
-const BASE = "https://sarang-space.site";
+const BASE = "https://portfolio-yedy.vercel.app";
 
 export default async function sitemap() {
   const staticPages = [
     { url: BASE,                       lastModified: new Date(), changeFrequency: "weekly",  priority: 1.0  },
-    { url: `${BASE}/projects`,         lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9  },
-    { url: `${BASE}/work`,             lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9  },
     { url: `${BASE}/about`,            lastModified: new Date(), changeFrequency: "monthly", priority: 0.8  },
+    { url: `${BASE}/expertise`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.9  },
+    { url: `${BASE}/services`,         lastModified: new Date(), changeFrequency: "monthly", priority: 0.9  },
+    { url: `${BASE}/projects`,         lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9  },
+    { url: `${BASE}/lab`,              lastModified: new Date(), changeFrequency: "monthly", priority: 0.7  },
+    { url: `${BASE}/experience`,       lastModified: new Date(), changeFrequency: "monthly", priority: 0.7  },
+    { url: `${BASE}/certifications`,   lastModified: new Date(), changeFrequency: "monthly", priority: 0.6  },
+    { url: `${BASE}/training`,         lastModified: new Date(), changeFrequency: "monthly", priority: 0.7  },
+    { url: `${BASE}/blog`,             lastModified: new Date(), changeFrequency: "weekly",  priority: 0.8  },
+    { url: `${BASE}/cv`,               lastModified: new Date(), changeFrequency: "monthly", priority: 0.6  },
     { url: `${BASE}/contact`,          lastModified: new Date(), changeFrequency: "yearly",  priority: 0.75 },
   ];
 

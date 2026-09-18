@@ -10,10 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 const CATEGORIES = [
   {
     num: "01",
-    label: "Website",
-    title: "Web Design & Development",
+    label: "Systèmes & Web",
+    title: "Développement & systèmes",
     description:
-      "High-performance websites, Shopify stores, and Next.js web apps — pixel-perfect and built for conversion.",
+      "Sites, applications et systèmes personnalisés — rapides, sécurisés et pensés pour durer.",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8 opacity-20 group-hover:opacity-60 transition-opacity duration-500">
         <rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" strokeWidth="1.5"/>
@@ -27,10 +27,10 @@ const CATEGORIES = [
   },
   {
     num: "02",
-    label: "Photo / Poster Design",
-    title: "Visual & Graphic Design",
+    label: "IA & Automatisation",
+    title: "Intelligence & automatismes",
     description:
-      "Brand identities, social media creatives, posters, and photo edits that stop the scroll and tell the story.",
+      "Assistants intelligents, scripts et workflows qui automatisent vos tâches répétitives.",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8 opacity-20 group-hover:opacity-60 transition-opacity duration-500">
         <rect x="5" y="5" width="30" height="30" rx="3" stroke="currentColor" strokeWidth="1.5"/>
@@ -38,14 +38,14 @@ const CATEGORIES = [
         <path d="M5 28l9-8 6 6 5-5 10 9" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
       </svg>
     ),
-    href: "/projects?cat=design",
+    href: "/projects",
   },
   {
     num: "03",
-    label: "Video",
-    title: "Video & Motion Editing",
+    label: "Maintenance",
+    title: "Diagnostic & réparation",
     description:
-      "Cinematic reels, brand films, short-form content, and motion graphics that captivate and convert audiences.",
+      "Diagnostic, dépannage, optimisation et récupération de données pour vos équipements.",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8 opacity-20 group-hover:opacity-60 transition-opacity duration-500">
         <rect x="4" y="9" width="24" height="22" rx="3" stroke="currentColor" strokeWidth="1.5"/>
@@ -53,7 +53,7 @@ const CATEGORIES = [
         <path d="M13 16l7 4-7 4V16z" fill="currentColor" opacity="0.5"/>
       </svg>
     ),
-    href: "/projects?cat=video",
+    href: "/projects",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function Work() {
 
         {/* Header and Filters */}
         <div className="mb-14 md:mb-20">
-          <p className="font-sans text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">
+          <p className="font-sans text-[10px] text-[#00F5FF] tracking-[0.5em] uppercase mb-4 font-medium">
             {SECTION.label}
           </p>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
@@ -109,13 +109,17 @@ export default function Work() {
 
             {/* Category pills — decorative only */}
             <div className="flex flex-wrap gap-2 lg:pb-2">
-              {["Website", "Photo / Poster Design", "Video"].map((cat) => (
+              {[
+                { label: "Tous", href: "/projects" },
+                { label: "Sites web", href: "/projects?cat=website" },
+                { label: "IA & Apps", href: "/projects" },
+              ].map((cat) => (
                 <Link
-                  key={cat}
-                  href={`/projects${cat !== "All" ? `?cat=${cat.toLowerCase().split(" ")[0]}` : ""}`}
+                  key={cat.label}
+                  href={cat.href}
                   className="px-4 py-2 rounded-full text-[10px] md:text-xs font-medium tracking-widest uppercase transition-all duration-300 bg-transparent text-white/40 border border-white/10 hover:text-white hover:border-white/30"
                 >
-                  {cat}
+                  {cat.label}
                 </Link>
               ))}
             </div>
@@ -131,18 +135,18 @@ export default function Work() {
               className="work-item group relative flex items-start gap-8 py-10 md:py-14 border-b border-white/8 hover:border-white/20 transition-all duration-500"
             >
               {/* Left orange accent bar */}
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-[#ff6b1a] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-[#00F5FF] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
 
               {/* Number */}
               <div className="pl-3 shrink-0 w-8 pt-1">
-                <span className="font-mono text-[10px] text-white/20 group-hover:text-[#ff6b1a] tracking-widest transition-colors duration-300">
+                <span className="font-mono text-[10px] text-white/20 group-hover:text-[#00F5FF] tracking-widest transition-colors duration-300">
                   {cat.num}
                 </span>
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0 translate-x-0 group-hover:translate-x-1.5 transition-transform duration-500 ease-out">
-                <p className="font-sans text-[10px] text-white/30 group-hover:text-[#ff6b1a]/70 tracking-[0.4em] uppercase font-light mb-2 transition-colors duration-300">
+                <p className="font-sans text-[10px] text-white/30 group-hover:text-[#00F5FF]/70 tracking-[0.4em] uppercase font-light mb-2 transition-colors duration-300">
                   {cat.label}
                 </p>
                 <h3 className="font-sans text-xl md:text-2xl font-black text-white tracking-tighter mb-3 group-hover:text-white transition-colors duration-300">
@@ -153,7 +157,7 @@ export default function Work() {
                 </p>
 
                 <span className="mt-4 inline-flex items-center gap-1.5 text-[10px] text-white/20 group-hover:text-white/55 tracking-widest uppercase transition-colors duration-200">
-                  View Projects
+                  Voir les projets
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
                   </svg>
@@ -172,19 +176,19 @@ export default function Work() {
             href="/projects"
             className="work-item group relative flex items-center gap-8 py-10 md:py-14 border-b border-white/8 hover:border-white/20 transition-all duration-500"
           >
-            <div className="absolute left-0 top-0 bottom-0 w-px bg-[#ff6b1a] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
+            <div className="absolute left-0 top-0 bottom-0 w-px bg-[#00F5FF] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
             <div className="pl-3 shrink-0 w-8">
-              <span className="font-mono text-[10px] text-white/20 group-hover:text-[#ff6b1a] tracking-widest transition-colors duration-300">→</span>
+              <span className="font-mono text-[10px] text-white/20 group-hover:text-[#00F5FF] tracking-widest transition-colors duration-300">→</span>
             </div>
             <div className="flex-1 translate-x-0 group-hover:translate-x-1.5 transition-transform duration-500 ease-out">
-              <p className="font-sans text-[10px] text-white/30 group-hover:text-[#ff6b1a]/70 tracking-[0.4em] uppercase font-light mb-2 transition-colors duration-300">
-                Full Portfolio
+              <p className="font-sans text-[10px] text-white/30 group-hover:text-[#00F5FF]/70 tracking-[0.4em] uppercase font-light mb-2 transition-colors duration-300">
+                Portfolio complet
               </p>
               <h3 className="font-sans text-xl md:text-2xl font-black text-white tracking-tighter group-hover:text-white transition-colors duration-300">
-                View All Projects
+                Tous les projets
               </h3>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-white/20 group-hover:text-[#ff6b1a] transition-colors duration-300 pr-2">
+            <div className="hidden md:flex items-center gap-2 text-white/20 group-hover:text-[#00F5FF] transition-colors duration-300 pr-2">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

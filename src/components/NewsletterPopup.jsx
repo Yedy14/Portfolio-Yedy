@@ -75,12 +75,12 @@ export default function NewsletterPopup() {
         </button>
 
         <div className="mb-6">
-          <div className="w-12 h-12 bg-[#ff6b1a]/10 text-[#ff6b1a] rounded-xl flex items-center justify-center mb-4">
+          <div className="w-12 h-12 bg-[#00F5FF]/10 text-[#00F5FF] rounded-xl flex items-center justify-center mb-4">
             <FiMail size={24} />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">Join the Newsletter</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">Restez informé</h2>
           <p className="text-white/60 text-sm leading-relaxed">
-            Get notified whenever I publish new cinematic portfolios, web development tips, or creative design resources.
+            Recevez un email à chaque nouvel article : cybersécurité, réseaux, développement, IA et technologies.
           </p>
         </div>
 
@@ -97,8 +97,8 @@ export default function NewsletterPopup() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#ff6b1a] transition-colors"
+                placeholder="Votre adresse email"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#00F5FF] transition-colors"
               />
             </div>
             
@@ -109,15 +109,15 @@ export default function NewsletterPopup() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full py-3 bg-[#ff6b1a] text-black font-bold rounded-xl hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-[#00F5FF] text-black font-bold rounded-xl hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {status === "loading" ? "Subscribing..." : "Subscribe Now"}
+              {status === "loading" ? "Inscription…" : "S'inscrire"}
             </button>
           </form>
         )}
         
         <p className="text-[10px] text-white/30 mt-4 text-center">
-          No spam. Unsubscribe at any time.
+          Pas de spam. Désinscription à tout moment.
         </p>
       </div>
     </div>

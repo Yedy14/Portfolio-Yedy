@@ -1,81 +1,63 @@
 import { NextResponse } from "next/server";
+import { SITE, CONTACT_INFO, SOCIALS, SERVICES, TECH_GROUPS, TIMELINE, PROJECTS, FAQ } from "@/data/site";
 
 /**
  * GET /api/llms
- * 
+ *
  * Machine-readable JSON endpoint for AI chatbots and LLM crawlers.
- * This supplements llms.txt with structured data that AI systems
- * can programmatically consume.
+ * Yédydia / Innov'Yed Solutions identity. No invented data.
  */
 export async function GET() {
   const data = {
-    name: "Sarang",
-    title: "Portfolio Designer, Website Developer, Video Editor & Photo Editor",
-    website: "https://sarang-space.site",
-    email: "sarangwalle@gmail.com",
-    location: "India",
-    available_for_hire: true,
-    summary:
-      "Sarang is a freelance portfolio designer, website developer, video editor, and photo editor from India. He creates cinematic, immersive websites and digital experiences.",
-    
-    services: [
-      {
-        name: "Creative Web Development",
-        description: "Cinematic portfolio websites, interactive landing pages, immersive digital experiences with GSAP, Three.js, and Next.js",
-        technologies: ["React", "Next.js", "GSAP", "Three.js", "WebGL", "Tailwind CSS"],
-      },
-      {
-        name: "Video Editing & Motion Design",
-        description: "Cinematic trailers, social media reels, motion graphics, and animated content",
-        technologies: ["After Effects", "Premiere Pro", "DaVinci Resolve", "CapCut"],
-      },
-      {
-        name: "UI/UX & Visual Design",
-        description: "Modern interface design, brand identity, posters, and creative visual concepts",
-        technologies: ["Figma", "Photoshop", "Illustrator", "Lightroom"],
-      },
-      {
-        name: "Shopify Development",
-        description: "Custom Shopify themes, e-commerce store setup and optimization",
-        technologies: ["Shopify Liquid", "JavaScript", "CSS"],
-      },
-      {
-        name: "Flutter App Development",
-        description: "Cross-platform mobile applications for iOS and Android",
-        technologies: ["Flutter", "Dart"],
-      },
-    ],
+    name: SITE.name,
+    title: SITE.baseline,
+    brand: SITE.brand,
+    website: SITE.baseUrl,
+    email: CONTACT_INFO.email,
+    whatsapp: CONTACT_INFO.phoneDisplay,
+    location: `${SITE.location} (Afrique de l'Ouest)`,
+    summary: SITE.tagline,
 
-    skills: {
-      frontend: ["React", "Next.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "GSAP", "Three.js", "WebGL"],
-      backend: ["Node.js", "Express", "Python", "PHP", "Go", "Rust"],
-      mobile: ["Flutter", "Dart", "Swift", "Kotlin"],
-      database: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase"],
-      creative: ["After Effects", "Premiere Pro", "DaVinci Resolve", "Figma", "Photoshop", "Illustrator", "Lightroom"],
-      devops: ["Git", "Docker", "Vercel", "Netlify"],
-    },
+    services: SERVICES.map((s) => ({
+      name: s.title,
+      description: s.description,
+      technologies: s.tech,
+      outcome: s.outcome,
+    })),
 
-    experience: [
-      { role: "Freelance Developer", period: "2024–Present" },
-      { role: "Freelance Video Editor", period: "2022–Present" },
-      { role: "Freelance Photo Editor & Graphic Designer", period: "2020–Present" },
-    ],
+    skills: Object.fromEntries(TECH_GROUPS.map((g) => [g.title, g.items])),
 
-    stats: {
-      websites_completed: "6+",
-      videos_edited: "75+",
-      photo_edits: "500+",
-    },
+    experience: TIMELINE.map((t) => ({ role: t.title, period: t.period })),
+
+    projects: PROJECTS.map((p) => ({
+      name: p.name,
+      category: p.category,
+      tagline: p.tagline,
+      status: p.status,
+    })),
 
     pages: {
-      home: "https://sarang-space.site/",
-      about: "https://sarang-space.site/about",
-      work: "https://sarang-space.site/work",
-      contact: "https://sarang-space.site/contact",
+      home: `${SITE.baseUrl}/`,
+      about: `${SITE.baseUrl}/about`,
+      expertise: `${SITE.baseUrl}/expertise`,
+      services: `${SITE.baseUrl}/services`,
+      projects: `${SITE.baseUrl}/projects`,
+      lab: `${SITE.baseUrl}/lab`,
+      experience: `${SITE.baseUrl}/experience`,
+      certifications: `${SITE.baseUrl}/certifications`,
+      training: `${SITE.baseUrl}/training`,
+      blog: `${SITE.baseUrl}/blog`,
+      cv: `${SITE.baseUrl}/cv`,
+      contact: `${SITE.baseUrl}/contact`,
     },
 
-    llms_txt: "https://sarang-space.site/llms.txt",
-    llms_full_txt: "https://sarang-space.site/llms-full.txt",
+    socials: Object.fromEntries(
+      SOCIALS.filter((s) => s.href).map((s) => [s.key, s.href])
+    ),
+
+    faq: FAQ.map((f) => ({ q: f.q, a: f.a })),
+
+    llms_txt: `${SITE.baseUrl}/llms.txt`,
   };
 
   return NextResponse.json(data, {

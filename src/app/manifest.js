@@ -1,16 +1,15 @@
 export default function manifest() {
   return {
-    name:             "Sarang — Creative Developer",
-    short_name:       "Sarang",
-    description:      "Cinematic digital experiences at the intersection of design and code.",
+    name:             "Yédydia — Expert informatique & technologies",
+    short_name:       "Yédydia",
+    description:      "Portfolio de Yédydia (Innov'Yed Solutions, Bénin) : concevoir, construire, sécuriser, automatiser.",
     start_url:        "/",
     display:          "standalone",
-    background_color: "#080808",
-    theme_color:      "#ff6b1a",
-    lang:             "en",
+    background_color: "#040B18",
+    theme_color:      "#00F5FF",
+    lang:             "fr",
     icons: [
-      { src: "/photo/favicon.png", sizes: "192x192", type: "image/png" },
-      { src: "/photo/favicon.png", sizes: "512x512", type: "image/png" },
+      { src: "/photo/yedydia-mark.svg", sizes: "any", type: "image/svg+xml" },
     ],
   };
 }

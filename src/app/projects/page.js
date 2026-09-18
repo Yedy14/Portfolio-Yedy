@@ -4,13 +4,13 @@ import Navbar from "../../components/Navbar";
 import ProjectsPage from "../../views/projects";
 
 export const metadata = {
-  title:       "Projects — Case Studies & Client Work by Sarang",
-  description: "Explore detailed case studies of Sarang's freelance projects — website development, video editing, and design work with client testimonials and tech breakdowns.",
-  keywords:    ["portfolio projects", "case studies", "freelance work", "client projects"],
-  alternates:  { canonical: "https://sarang-space.site/projects" },
+  title:       "Projets — Réalisations de Yédydia",
+  description: "Réalisations de Yédydia (Innov'Yed Solutions) : HAPPY, DIS-MOI, NetBank Yotta, YouthWorld, PC Doctor Web et l'écosystème Innov'Yed Solutions.",
+  keywords:    ["projets Yédydia", "réalisations", "portfolio projets", "Innov'Yed Solutions"],
+  alternates:  { canonical: "https://portfolio-yedy.vercel.app/projects" },
   openGraph: {
-    title: "Projects — Sarang | Case Studies & Client Work",
-    description: "Detailed case studies of web development, video editing, and design projects by Sarang.",
+    title: "Projets — Yédydia (Innov'Yed Solutions)",
+    description: "Galerie des réalisations : applications, systèmes, IA et solutions technologiques.",
   },
 };
 

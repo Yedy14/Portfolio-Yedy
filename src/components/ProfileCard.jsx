@@ -16,7 +16,7 @@ const round = (v, precision = 3) => parseFloat(v.toFixed(precision));
 const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
 
 const ProfileCardComponent = ({
-  avatarUrl = '/photo/about me.webp',
+  avatarUrl = '/photo/yedydia-mark.svg',
   iconUrl = '',
   grainUrl = '',
   innerGradient,
@@ -28,9 +28,9 @@ const ProfileCardComponent = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  name = 'Sarang',
-  title = 'Creative Developer & Designer',
-  handle = 'sarang',
+  name = 'Yédydia',
+  title = 'Expert informatique & technologies',
+  handle = 'yedydia',
   status = 'Available for Hire',
   contactText = 'Hire Me',
   showUserInfo = true,
@@ -294,7 +294,7 @@ const ProfileCardComponent = ({
       '--icon': iconUrl ? `url(${iconUrl})` : 'none',
       '--grain': grainUrl ? `url(${grainUrl})` : 'none',
       '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
-      '--behind-glow-color': behindGlowColor ?? 'rgba(255, 107, 26, 0.4)', // Use Sarang's brand orange color as backing glow!
+      '--behind-glow-color': behindGlowColor ?? 'rgba(0, 245, 255, 0.4)', // Innov'Yed cyan glow
       '--behind-glow-size': behindGlowSize ?? '50%'
     }),
     [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize]
