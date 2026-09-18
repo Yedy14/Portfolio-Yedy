@@ -8,6 +8,9 @@ const nextConfig = {
   // ── Experimental ─────────────────────────────────────────────────
   experimental: {
     optimizeCss: true,
+    // cssChunking emits static/immutable/chunks/* which the current Vercel
+    // builder does not collect, leaving the site without CSS/JS at runtime.
+    cssChunking: false,
   },
 
   // ── Image optimisation ────────────────────────────────────────────
