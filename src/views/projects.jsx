@@ -178,7 +178,7 @@ function ProjectShowcase({ items, startIdx, onClose }) {
                   onClick={() => { onClose(); router.push(`/project/${current.id}`); }}
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/15 text-white/60 hover:text-white hover:border-white/40 rounded-full text-[9px] uppercase tracking-[0.3em] font-bold transition-all duration-200"
                 >
-                  Full Details
+                  Détails complets
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
                 </button>
               )}
@@ -187,7 +187,7 @@ function ProjectShowcase({ items, startIdx, onClose }) {
 
             <motion.p className="mt-auto pt-6 text-[8px] text-white/10 tracking-[0.5em] uppercase"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-              {current.category} Collection · {items.length} works
+              Collection {current.category} · {items.length} réalisations
             </motion.p>
           </motion.div>
         </motion.div>

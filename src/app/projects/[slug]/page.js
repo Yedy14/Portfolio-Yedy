@@ -116,7 +116,7 @@ export default function CaseStudyPage() {
               Un projet similaire ?
             </p>
             <p className="text-white/60 text-sm font-light mb-7 max-w-md mx-auto">
-              Discutons de votre besoin : analyse, conception et réalisation d'une solution adaptée.
+              Discutons de votre besoin : analyse, conception et réalisation d&apos;une solution adaptée.
             </p>
             <Link
               href="/contact"
