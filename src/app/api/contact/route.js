@@ -2,7 +2,11 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) throw new Error('RESEND_API_KEY not configured');
+  return new Resend(key);
+}
 
 const DAILY_LIMIT = 3;
 
@@ -47,6 +51,12 @@ export async function POST(request) {
     }
 
     // Send email
+    let resend;
+    try {
+      resend = getResend();
+    } catch {
+      return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
+    }
     const { data, error: emailError } = await resend.emails.send({
       from: 'Portfolio Contact <support@sarang-space.site>',
       to: process.env.ADMIN_EMAIL,
